@@ -1,10 +1,10 @@
 //App.js
-
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 //componunt
 import Navbar from './layout/Navbar';
+import Home from './components/Home';
 
 //css
 import './App.css';
@@ -22,7 +22,14 @@ function App() {
 
   return (
     <div className="App">
-
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<h1>About</h1>} />
+          <Route path='/contact' element={<h1>Contact</h1>} />
+        </Routes>
+      </Router>
       <h1>간단한 투두 리스트</h1>
       <input
         value={input}
