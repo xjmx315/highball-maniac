@@ -1,6 +1,10 @@
 .App {
   text-align: center;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
+}
+
+html{
+  background-color: #801840;
 }
 
 input {
@@ -15,11 +19,11 @@ button {
   cursor: pointer;
 }
 
-ul {
+#todolist ul {
   list-style: none;
   padding: 0;
 }
 
-li {
+#todolist li {
   margin: 10px 0;
 }
