@@ -16,6 +16,10 @@ nav {
     margin: 0 6rem 0 0;
 }
 
+#logo:hover{
+    color: aqua;
+}
+
 /* 리스트 스타일 */
 nav ul {
     list-style: none; /* 기본 점 제거 */
