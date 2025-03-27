@@ -33,6 +33,11 @@ nav ul {
 /* 리스트 아이템 스타일 */
 nav li {
     margin: 0 0.5rem; /* 아이템 간 간격 */
+    transition: all 0.3s ease; 
+}
+
+nav li:hover{
+    margin: 0 0.1rem;
 }
 
 /* 링크 스타일 */
