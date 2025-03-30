@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //componunt
 import Navbar from './layout/Navbar';
 import Discover from './pages/Discover';
+import About from './pages/About';
+import Recipe from './pages/Recipe';
 
 //css
 import './App.css';
@@ -26,8 +28,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Discover />} />
-          <Route path='/about' element={<h1>About</h1>} />
-          <Route path='/contact' element={<h1>Contact</h1>} />
+          <Route path='/recipe' element={<Recipe />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </Router>
       <div id='todolist'>

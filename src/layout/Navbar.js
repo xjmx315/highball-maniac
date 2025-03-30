@@ -11,8 +11,8 @@ function Navbar() {
       <h1 id='logo'>Highball Maniac</h1>
       <ul>
         <li><NavLink exact to="/" activeClassName="active">발견</NavLink></li>
-        <li><NavLink to="/about" activeClassName="active">레시피</NavLink></li>
-        <li><NavLink to="/contact" activeClassName="active">About</NavLink></li>
+        <li><NavLink to="/recipe" activeClassName="active">레시피</NavLink></li>
+        <li><NavLink to="/about" activeClassName="active">About</NavLink></li>
       </ul>
     </nav>
   );
