@@ -1,1 +1,19 @@
 /*Discover.css*/
+#search{
+    margin: 1rem 1rem;
+}
+
+#search-input{
+    width: 20rem;
+    height: 2rem;
+}
+
+#search-button{
+    width: 5rem;
+    height: 2rem;
+}
+
+.modal-close-button{
+    width: 5rem;
+    height: 2rem;
+}

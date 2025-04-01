@@ -5,25 +5,30 @@
     아이탬을 그릴 때마다 불필요한 api 호출이 발생하지는 않을까?
 */
 
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import Item from "../components/Item";
 import Card from "../components/Card";
+import Modal from "../components/Modal";
+
 import './Discover.css';
 
 function Discover(){
+    //Item
     const [items, setItems] = useState([]);
 
-    const testItem = () => {
-        return (
-            <Item
-                itemid="1"
-            />
-        );
+    const addItem = (itemId) => {
+        setItems([...items, <Item itemid={itemId} />]);
     };
 
-    const addItem = () => {
-        setItems([...items, <Item itemid={1} />]);
-    };
+    //Modal
+    const [isModalOpen, setModalOpen] = useState(false);
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
+
+    //search
+    const [searchString, setSearchString] = useState('');
+    const [searchItems, setSearchItems] = useState([]);
+
 
     return (
         <div>
@@ -40,10 +45,21 @@ function Discover(){
                 <Card 
                     imageUrl="https://cdn-icons-png.flaticon.com/512/10233/10233645.png"
                     description="추가"
-                    _onClick={addItem}
+                    _onClick={openModal}
                 />
             </div>
             <button id="discoverButton">발견!</button>
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <div id="search">
+                    <input 
+                        value={searchString}
+                        onChange={(e) => setSearchString(e.target.value)}
+                        placeholder="술의 이름으로 검색하세요"
+                        id="search-input"
+                    />
+                    <button id="search-button">검색</button>
+                </div>
+            </Modal>
         </div>
     );
 }
