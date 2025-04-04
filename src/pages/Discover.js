@@ -29,6 +29,23 @@ function Discover(){
     const [searchString, setSearchString] = useState('');
     const [searchItems, setSearchItems] = useState([]);
 
+    const searchItem = async () => {
+        try{
+            const response = await fetch(`http://localhost:4000/api/item/search?name=${searchString}`);
+            const searchResult = await response.json();
+            //console.log('searchResult: ', searchResult);
+            const items = searchResult.map((item) => {
+                return <Card imageUrl={item.image} description={item.name} />;
+            });
+            //console.log(items);
+            setSearchItems(items);
+        }
+        catch(err){
+            console.error("검색 실패: ", err);
+        }
+        
+    };
+
 
     return (
         <div>
@@ -57,8 +74,9 @@ function Discover(){
                         placeholder="술의 이름으로 검색하세요"
                         id="search-input"
                     />
-                    <button id="search-button">검색</button>
+                    <button id="search-button" onClick={searchItem}>검색</button>
                 </div>
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>{searchItems}</div>
             </Modal>
         </div>
     );
