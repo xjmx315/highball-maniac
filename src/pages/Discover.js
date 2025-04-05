@@ -1,10 +1,5 @@
 //Discover.js
 
-/*
-    아이탬에 id만 주고, 아이탬에서 id를 api에 호출해서 그림을 그리는 방식이라면
-    아이탬을 그릴 때마다 불필요한 api 호출이 발생하지는 않을까?
-*/
-
 import React, { use, useState } from "react";
 import Item from "../components/Item";
 import Card from "../components/Card";
@@ -16,8 +11,19 @@ function Discover(){
     //Item
     const [items, setItems] = useState([]);
 
-    const addItem = (itemId) => {
-        setItems([...items, <Item itemid={itemId} />]);
+    const addItem = (itemData) => {
+        //중복 검사
+        console.log("items: ", items);
+        console.log("addItem with:", itemData);
+        for (let i = 0; i < items.length; i++){
+            if (itemData.itemId === items[i].itemId){
+                console.log("중복된 항목이라 추가되지 않았습니다. ");
+                return ;
+            }
+        }
+        console.log("items: ", items);
+        setItems((prevItems) => [...prevItems, <Item itemId={itemData.itemId} imageUrl={itemData.imageUrl} description={itemData.description}/>]);
+        console.log("items: ", items);
     };
 
     //Modal
@@ -33,19 +39,17 @@ function Discover(){
         try{
             const response = await fetch(`http://localhost:4000/api/item/search?name=${searchString}`);
             const searchResult = await response.json();
-            //console.log('searchResult: ', searchResult);
-            const items = searchResult.map((item) => {
-                return <Card imageUrl={item.image} description={item.name} />;
+            console.log('searchResult: ', searchResult);
+            const searchedItems = searchResult.map((item) => {
+                return <Item itemId={item.id} imageUrl={item.image} description={item.name} _onClick={addItem}/>;
             });
-            //console.log(items);
-            setSearchItems(items);
+            //console.log(searchedItems);
+            setSearchItems(searchedItems);
         }
         catch(err){
             console.error("검색 실패: ", err);
         }
-        
     };
-
 
     return (
         <div>

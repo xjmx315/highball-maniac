@@ -4,10 +4,16 @@ import React from "react";
 import Card from './Card';
 import './Item.css'
 
-function Item({ itemid }) {
-  const getDatabyId = (itemid) => {
-    console.log(`[Item] draw with id ${itemid}`);
-    if (itemid === 1){
+function Item({ itemId, imageUrl, description, _onClick }) {
+  const ItemData = {
+    itemId: itemId,
+    imageUrl: imageUrl,
+    description: description,
+  }
+
+  const getDatabyId = (itemId) => {
+    console.log(`[Item] draw with id ${itemId}`);
+    if (itemId === 1){
       return {
         imageUrl: "https://spng.pngfind.com/pngs/s/623-6233285_bacardi-oakheart-spiced-rum-1-litre-png-download.png",
         description: "바카디 럼"
@@ -19,9 +25,16 @@ function Item({ itemid }) {
     };
   }
 
-  const {imageUrl, description, _onClick} = getDatabyId(itemid);
+  if (!ItemData.imageUrl){
+    const {imageUrl, description} = getDatabyId(ItemData.itemId);
+    ItemData.imageUrl = imageUrl;
+    ItemData.description = description;
+  }
+
   return (
-    <Card imageUrl={ imageUrl } description={ description } _onClick={ _onClick } />
+    <div className="item" onClick={ () => _onClick(ItemData) }>
+      <Card imageUrl={ ItemData.imageUrl } description={ ItemData.description } />
+    </div>
   );
 }
 
