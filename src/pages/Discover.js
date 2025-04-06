@@ -12,18 +12,18 @@ function Discover(){
     const [items, setItems] = useState([]);
 
     const addItem = (itemData) => {
-        //중복 검사
-        console.log("items: ", items);
         console.log("addItem with:", itemData);
-        for (let i = 0; i < items.length; i++){
-            if (itemData.itemId === items[i].itemId){
-                console.log("중복된 항목이라 추가되지 않았습니다. ");
-                return ;
+        setItems((prevItems) => {
+            //중복 검사
+            console.log("items: ", prevItems);
+            for (let i = 0; i < prevItems.length; i++){
+                if (itemData.itemId === prevItems[i].props.itemId){
+                    console.log("중복된 항목이라 추가되지 않았습니다. ");
+                    return prevItems;
+                }
             }
-        }
-        console.log("items: ", items);
-        setItems((prevItems) => [...prevItems, <Item itemId={itemData.itemId} imageUrl={itemData.imageUrl} description={itemData.description}/>]);
-        console.log("items: ", items);
+            return [...prevItems, <Item itemId={itemData.itemId} imageUrl={itemData.imageUrl} description={itemData.description}/>];
+        });
     };
 
     //Modal
