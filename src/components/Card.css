@@ -16,6 +16,10 @@
 .card-container:hover {
     transform: translateY(-5px); /* 호버 시 살짝 올라감 */
 }
+
+.card-container:active {
+    transform: translateY(10px);
+}
   
 .card-image {
     width: 100%; /* 컨테이너에 맞춤 */
