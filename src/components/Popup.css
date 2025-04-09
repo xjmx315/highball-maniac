@@ -1,1 +1,40 @@
 /*Popup.css*/
+
+.popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1003;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    animation: fadeInUp 0.3s ease-out, fadeOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0; /* 처음엔 투명 */
+    transform: translate(-50%, 15px); /* X축은 중앙 유지, Y축으로 20px 아래에서 시작 */
+  }
+  100% {
+    opacity: 1; /* 완전히 불투명 */
+    transform: translate(-50%, 0); /* 최종 위치 (원래 top: 20px에 맞춰짐) */
+  }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}

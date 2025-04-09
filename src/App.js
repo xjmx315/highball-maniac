@@ -7,6 +7,7 @@ import Navbar from './layout/Navbar';
 import Discover from './pages/Discover';
 import About from './pages/About';
 import Recipe from './pages/Recipe';
+import {PopupProvider} from './components/Popup';
 
 //css
 import './App.css';
@@ -32,6 +33,7 @@ function App() {
           <Route path='/about' element={<About />} />
         </Routes>
       </Router>
+      <PopupProvider/>
       <div id='todolist'>
         <h1>간단한 투두 리스트</h1>
         <input
