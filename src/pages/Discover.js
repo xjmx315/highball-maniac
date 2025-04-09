@@ -16,10 +16,9 @@ function Discover(){
         console.log("addItem with:", itemData);
         setItems((prevItems) => {
             //중복 검사
-            console.log("items: ", prevItems);
+            //console.log("items: ", prevItems);
             for (let i = 0; i < prevItems.length; i++){
                 if (itemData.itemId === prevItems[i].props.itemId){
-                    console.log("중복된 항목이라 추가되지 않았습니다. ");
                     createPopup('이미 추가된 항목입니다');
                     return prevItems;
                 }
@@ -41,7 +40,7 @@ function Discover(){
         try{
             const response = await fetch(`http://localhost:4000/api/item/search?name=${searchString}`);
             const searchResult = await response.json();
-            console.log('searchResult: ', searchResult);
+            //console.log('searchResult: ', searchResult);
             const searchedItems = searchResult.map((item) => {
                 return <Item itemId={item.id} imageUrl={item.image} description={item.name} _onClick={addItem}/>;
             });
@@ -50,6 +49,7 @@ function Discover(){
         }
         catch(err){
             console.error("검색 실패: ", err);
+            createPopup('검색할 수 없습니다. 검색 서버가 응답하지 않습니다. ')
         }
     };
 
