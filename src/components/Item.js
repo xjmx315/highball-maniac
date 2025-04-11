@@ -32,7 +32,7 @@ function Item({ itemId, imageUrl, description, _onClick }) {
   }
 
   return (
-    <div className="item" onClick={ () => _onClick(ItemData) }>
+    <div className="item" onClick={ () => {if (_onClick) _onClick(ItemData)} }>
       <Card imageUrl={ ItemData.imageUrl } description={ ItemData.description } />
     </div>
   );

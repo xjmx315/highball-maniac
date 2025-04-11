@@ -12,6 +12,18 @@ function Discover(){
     //Item
     const [items, setItems] = useState([]);
 
+    const removeItem = (itemData) => {
+        setItems((prevItems) => {
+            return prevItems.filter((value) => {
+                if (value.props.itemId === itemData.itemId){
+                    return false;
+                }
+                return true;
+            });
+        });
+
+    };
+
     const addItem = (itemData) => {
         console.log("addItem with:", itemData);
         setItems((prevItems) => {
@@ -23,7 +35,7 @@ function Discover(){
                     return prevItems;
                 }
             }
-            return [...prevItems, <Item itemId={itemData.itemId} imageUrl={itemData.imageUrl} description={itemData.description}/>];
+            return [...prevItems, <Item itemId={itemData.itemId} imageUrl={itemData.imageUrl} description={itemData.description} _onClick={removeItem}/>];
         });
     };
 
