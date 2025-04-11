@@ -21,7 +21,6 @@ function Discover(){
                 return true;
             });
         });
-
     };
 
     const addItem = (itemData) => {

@@ -14,6 +14,9 @@ function Navbar() {
         <li><NavLink to="/recipe" activeClassName="active">레시피</NavLink></li>
         <li><NavLink to="/about" activeClassName="active">About</NavLink></li>
       </ul>
+      <div class="login-container">
+        <NavLink to="/login" className="login-btn">로그인</NavLink>
+      </div>
     </nav>
   );
 }
