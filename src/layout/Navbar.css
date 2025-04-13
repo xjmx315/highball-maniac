@@ -67,14 +67,14 @@ li a.active {
 }
 
 /* 로그인 버튼 컨테이너 스타일 */
-.login-container {
+.nav-login {
     margin: 1.5rem 7rem;
     display: flex;
     justify-content: flex-end;
 }
   
-  /* 로그인 버튼 스타일 */
-  .login-btn {
+/* 로그인 버튼 스타일 */
+.login-btn {
     display: inline-block;
     padding: 8px 20px;
     background-color: #ff7b00; /* 부드러운 블루 톤 */
@@ -85,11 +85,11 @@ li a.active {
     border-radius: 25px; /* 둥근 버튼 */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 살짝 입체감 */
-  }
-  
-  /* 호버 효과 */
-  .login-btn:hover {
+}
+
+/* 호버 효과 */
+.login-btn:hover {
     background-color: #b35600; /* 호버 시 조금 더 진한 블루 */
     transform: translateY(-2px); /* 살짝 떠오르는 효과 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+}
