@@ -5,7 +5,7 @@ nav {
     padding: 1rem 4rem; /* 상하 패딩 */
     position: sticky; /* 상단 고정 (선택사항) */
     /*top: 0;*/
-    z-index: 999;
+    z-index: 1000;
     display: flex; /* 가로 배치 */
     justify-content: space-between; /* 중앙 정렬 */
     position: relative;

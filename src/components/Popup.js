@@ -80,8 +80,8 @@ const PopupProvider = () => {
             {popupState.map((popup) => (
                 <Popup
                     key={popup.id}
+                    id={popup.id}
                     message={popup.message}
-                    onClose={() => removePopup(popup.id)}
                 />
             ))}
         </>
