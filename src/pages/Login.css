@@ -11,6 +11,10 @@
      max-width: 70rem;
 }
 
+.input-box-title{
+  display: inline-block;
+}
+
 /* 전체 컨테이너 스타일 */
 .locontainer {
     /* 요청한 배경색 #801840 사용 */
@@ -22,6 +26,20 @@
     justify-content: center;
     align-items: center;
   }
+
+
+.clickable{
+  transition: transform 0.2s ease;
+  color: aqua;
+}
+
+.clickable:hover{
+  transform: translateY(-5px);
+}
+
+.clickable:active{
+  transform: translateY(10px);
+}
   
   /* 로그인 폼 박스 스타일 */
   .login-box {
