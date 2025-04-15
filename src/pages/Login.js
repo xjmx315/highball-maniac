@@ -1,6 +1,8 @@
 // Login.js
 import {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import './Login.css';
+import { createPopup } from '../components/Popup';
 
 const Login = () => {
     const [idInput, setIdInput] = useState('');
@@ -10,6 +12,10 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!(idInput && pwInput)){
+            createPopup('아이디&비밀번호를 입력해 주세요. ')
+            return;
+        }
         // TODO: 로그인 API 호출 또는 처리 로직 추가
         console.log('ID:', idInput, 'Password:', pwInput);
     };
@@ -22,7 +28,7 @@ const Login = () => {
                 <input
                     value={ idInput }
                     onChange={ (e) => setIdInput(e.target.value) }
-                    placeholder="ID"
+                    placeholder="ID(닉네임)"
                     type='text'
                     className='input'
                 />
@@ -35,13 +41,14 @@ const Login = () => {
                 />
             </div>
         </div>
+
         <div id='place-holder'/>
+
         <div className='input-box' id='login-box'>
-            <h1 className='clickable input-box-title'>Regsiter</h1>
+            <NavLink to='/join'><h1 className='clickable input-box-title'>Join</h1></NavLink>
         </div>
     </div>
     );
-    
 }
 
 export default Login;
