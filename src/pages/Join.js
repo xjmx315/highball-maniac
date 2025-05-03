@@ -50,7 +50,6 @@ const Join = () => {
         catch (e) {
             console.log("회원가입 실패: ", e);
         }
-        
     };
 
     return (

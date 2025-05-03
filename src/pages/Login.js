@@ -10,7 +10,7 @@ const Login = () => {
 
     const variablClass = `input-box-title ${idInput && pwInput ? 'clickable' : '' }`;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!(idInput && pwInput)){
             createPopup('아이디&비밀번호를 입력해 주세요. ')
@@ -18,6 +18,29 @@ const Login = () => {
         }
         // TODO: 로그인 API 호출 또는 처리 로직 추가
         console.log('ID:', idInput, 'Password:', pwInput);
+
+        //TODO: api 주소 전역 변수 참조해서 호출하도록 바꾸기
+        try {
+            const myId = idInput;
+            const response = await fetch('http://localhost:4000/api/user/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({name: myId, password: pwInput})
+            });
+            console.log("로그인 응답: ", response);
+            const resData = await response.json();
+            console.log("로그인 응답 처리: ", resData);
+            if (response.ok) {
+                createPopup(`안녕하세요 ${myId}님!`);
+                localStorage.setItem('token', resData.token);
+            }
+            else {
+                createPopup("아이디 또는 비밀번호가 올바르지 않습니다. ");
+            }
+        }
+        catch (e) {
+            console.log("로그인 실패: ", e);
+        }
     };
 
     return (
@@ -52,3 +75,12 @@ const Login = () => {
 }
 
 export default Login;
+
+/*
+const response = await fetch('http://localhost:3001/api/profile', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  }
+});
+*/
