@@ -19,7 +19,7 @@ const Join = () => {
 
     const variablClass = `input-box-title ${idInput && pwInput && isChecked ? 'clickable' : '' }`;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if(!isChecked){
             createPopup('약관에 동의해주세요');
@@ -31,6 +31,26 @@ const Join = () => {
         }
         // TODO: 로그인 API 호출 또는 처리 로직 추가
         console.log('ID:', idInput, 'Password:', pwInput, 'Eamil:', emailInput);
+        
+        //TODO: api 주소 전역 변수 참조해서 호출하도록 바꾸기
+        try {
+            const response = await fetch('http://localhost:4000/api/user/join', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({name: idInput, password: pwInput, email: emailInput})
+            });
+            console.log("회원가입 응답: ", response);
+            if (response.ok) {
+                createPopup("회원가입이 완료되었습니다!");
+            }
+            else {
+                createPopup("회원가입에 실패했습니다. 이미 사용중인 아이디 입니다. ");
+            }
+        }
+        catch (e) {
+            console.log("회원가입 실패: ", e);
+        }
+        
     };
 
     return (
@@ -62,9 +82,6 @@ const Join = () => {
                         </ol>
                         <p>
                         * 사용자는 언제든지 개인정보 제공에 대한 동의를 철회할 수 있으며, 이 경우 서비스 이용이 제한될 수 있습니다.
-                        </p>
-                        <p>
-                        * 이 서비스는 비밀번호 암호화를 제공하지 않으며 추후 업데이트될 예정입니다. 
                         </p>
                         <p>
                         * 이 서비스를 이용하여 사용자가 올린 정보의 유출로 피해가 예상될 경우 가명, 다른 사이트에서 이용하지 않는 비밀번호를 사용하여 해킹을 방지하세요. 사용자가 업로드하는 정보는 안전하게 보호되지만 강력한 공격에 의해 탈취되었을 경우 이 서비스는 책임을 지지 않습니다. 
