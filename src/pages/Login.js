@@ -33,6 +33,7 @@ const Login = () => {
             if (response.ok) {
                 createPopup(`안녕하세요 ${myId}님!`);
                 localStorage.setItem('token', resData.token);
+                localStorage.setItem('userName', myId);
             }
             else {
                 createPopup("아이디 또는 비밀번호가 올바르지 않습니다. ");
@@ -40,6 +41,7 @@ const Login = () => {
         }
         catch (e) {
             console.log("로그인 실패: ", e);
+            createPopup("로그인 실패: 서버가 응답하지 않습니다. ")
         }
     };
 

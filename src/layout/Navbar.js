@@ -16,6 +16,7 @@ function Navbar() {
       </ul>
       <div class="nav-login">
         <NavLink to="/login" className="login-btn">로그인</NavLink>
+        <NavLink to="/user_info" className="login-btn">내 페이지</NavLink>
       </div>
     </nav>
   );
