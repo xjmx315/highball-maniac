@@ -1,6 +1,6 @@
 //App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Router as Router, Route, Routes } from 'react-router-dom';
 
 //componunt
 import Navbar from './layout/Navbar';
@@ -36,7 +36,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='login' element={<Login/>}/>
           <Route path='join' element={<Join/>}/>
-          <Route path='user_info' element={<UserInfo/>}/>
+          <Route path='user_info' element={<UserInfo userName={localStorage.getItem('userName')}/>}/>
         </Routes>
       </Router>
       <PopupProvider/>

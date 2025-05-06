@@ -17,14 +17,14 @@ const checkToken = async () => {
     }
 }
 
-const UserInfo = () => {
-    const [userName, setUserName] = useState('__userName__');
+const UserInfo = ({ userName }) => {
+    const [userName, setUserName] = useState(userName);
 
     useEffect(() => {
         console.log('this is userinfo effect');
 
         if (checkToken()) {
-            setUserName(localStorage.getItem('userName'));
+            setUserName(userName);
         }
         else {
             navigator('/login');
