@@ -1,6 +1,6 @@
 //App.js
 import React, { useState } from 'react';
-import { Router as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 //componunt
 import Navbar from './layout/Navbar';
