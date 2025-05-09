@@ -1,13 +1,13 @@
 // Login.js
 import {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { createPopup } from '../components/Popup';
 
 const Login = () => {
     const [idInput, setIdInput] = useState('');
     const [pwInput, setPWInput] = useState('');
-
+    const navigate = useNavigate();
     const variablClass = `input-box-title ${idInput && pwInput ? 'clickable' : '' }`;
 
     const handleSubmit = async (e) => {
@@ -34,6 +34,7 @@ const Login = () => {
                 createPopup(`안녕하세요 ${myId}님!`);
                 localStorage.setItem('token', resData.token);
                 localStorage.setItem('userName', myId);
+                navigate('/user_info');
             }
             else {
                 createPopup("아이디 또는 비밀번호가 올바르지 않습니다. ");
