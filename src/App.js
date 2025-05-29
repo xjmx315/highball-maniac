@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './layout/Navbar';
 import Discover from './pages/Discover';
 import About from './pages/About';
-import Recipe from './pages/Recipe';
+import Recipes from './pages/Recipes';
 import Login from './pages/Login';
 import Join from './pages/Join';
 import {PopupProvider} from './components/Popup';
@@ -32,7 +32,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Discover />} />
-          <Route path='/recipe' element={<Recipe />} />
+          <Route path='/recipe' element={<Recipes />} />
           <Route path='/about' element={<About />} />
           <Route path='login' element={<Login/>}/>
           <Route path='join' element={<Join/>}/>
