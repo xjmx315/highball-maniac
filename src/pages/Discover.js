@@ -5,6 +5,7 @@ import Item from "../components/Item";
 import Card from "../components/Card";
 import Modal from "../components/Modal";
 import {createPopup} from "../components/Popup";
+import apiClient from "../common/apiClient";
 
 import './Discover.css';
 
@@ -49,8 +50,7 @@ function Discover(){
 
     const searchItem = async () => {
         try{
-            const response = await fetch(`http://localhost:4000/api/item/search?name=${searchString}`);
-            const searchResult = await response.json();
+            const searchResult = await apiClient.get(`/item/search?name=${searchString}`);
             //console.log('searchResult: ', searchResult);
             const searchedItems = searchResult.map((item) => {
                 return <Item itemId={item.id} imageUrl={item.image} description={item.name} _onClick={addItem}/>;

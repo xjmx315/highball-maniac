@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { createPopup } from '../components/Popup';
+import apiClient from '../common/apiClient';
 
 const Login = () => {
     const [idInput, setIdInput] = useState('');
@@ -16,28 +17,16 @@ const Login = () => {
             createPopup('아이디&비밀번호를 입력해 주세요. ')
             return;
         }
-        // TODO: 로그인 API 호출 또는 처리 로직 추가
         console.log('ID:', idInput, 'Password:', pwInput);
 
-        //TODO: api 주소 전역 변수 참조해서 호출하도록 바꾸기
         try {
             const myId = idInput;
-            const response = await fetch('http://localhost:4000/api/user/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({name: myId, password: pwInput})
-            });
-            console.log("로그인 응답: ", response);
-            const resData = await response.json();
-            console.log("로그인 응답 처리: ", resData);
-            if (response.ok) {
+            const response = await apiClient.post('/user/login', JSON.stringify({name: myId, password: pwInput}));
+            if (response) {
                 createPopup(`안녕하세요 ${myId}님!`);
-                localStorage.setItem('token', resData.token);
+                localStorage.setItem('token', response.token);
                 localStorage.setItem('userName', myId);
                 navigate('/user_info');
-            }
-            else {
-                createPopup("아이디 또는 비밀번호가 올바르지 않습니다. ");
             }
         }
         catch (e) {

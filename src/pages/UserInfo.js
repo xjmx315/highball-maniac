@@ -3,20 +3,14 @@ import { useState, useEffect } from "react";
 import apiClient from "../common/apiClient";
 
 const checkToken = async () => {
-    const token = localStorage.getItem('token');
-    
-    const res = await fetch('http://localhost:4000/api/user/TokenCheck', {
-        method: 'GET',
-        headers: { 'Authorization': `Bearer ${token}` }
-    });
-
-    if (res.ok) {
-        return await res.json();
+    const result = await apiClient.get('/user/TokenCheck', 'Authorization');
+    if (result) {
+        return true;
     }
-    else {
+    else{
         return false;
     }
-}
+};
 
 const getUserInfo = async (userName) => {
     console.log("get userinfo with:", userName);
@@ -26,11 +20,11 @@ const getUserInfo = async (userName) => {
     }
     console.log(res);
     return res;
-}
+};
 
 const UserInfo = ({ userName }) => {
     console.log("make user info with:", userName);
-    const [userNameState, setUserName] = useState("Loding");
+    const [userNameState, setUserName] = useState("Loding...");
     const [userCreatedAt, setUserCreatedAt] = useState("");
 
     useEffect(() => {

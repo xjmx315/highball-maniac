@@ -13,7 +13,8 @@ const handleResponse = async (response) => {
     if (!response.ok) {
         const error = await response.json().catch(() => ({}));
         console.log(error);
-        createPopup('서버 에러가 발생했습니다. ');
+        createPopup(error.message);
+        return undefined;
     }
     return response.json();
 };
@@ -21,24 +22,34 @@ const handleResponse = async (response) => {
 const handleError = (error) => {
     console.error(error);
     createPopup('서버가 응답하지 않습니다.');
+    return undefined;
 };
 
-const get = async (path) => {
+const get = async (path, ...options) => {
+    const headers = {
+        'Content-Type': 'application/json',
+    }
+
+    options.forEach((option) => {
+        if (option === "Authorization") {
+            headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+        }
+    })
+
     return fetch(`${API_URL}${path}`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers
     }).then(handleResponse)
     .catch(handleError);
 };
 
-const post = async (path, data) => {
+const post = async (path, body) => {
     return fetch(`${API_URL}${path}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
+        body
     }).then(handleResponse)
     .catch(handleError);
 };
