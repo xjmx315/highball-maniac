@@ -3,7 +3,8 @@ import {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { createPopup } from '../components/Popup';
 import './Login.css'; //Login에서 스타일 공유
-import './Join.css'
+import './Join.css';
+import apiClient from '../common/apiClient';
 
 const Join = () => {
     const [idInput, setIdInput] = useState('');
@@ -29,26 +30,23 @@ const Join = () => {
             createPopup('아이디&비밀번호는 필수 항목입니다')
             return;
         }
-        // TODO: 로그인 API 호출 또는 처리 로직 추가
         console.log('ID:', idInput, 'Password:', pwInput, 'Eamil:', emailInput);
         
-        //TODO: api 주소 전역 변수 참조해서 호출하도록 바꾸기
         try {
-            const response = await fetch('http://localhost:4000/api/user/join', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({name: idInput, password: pwInput, email: emailInput})
-            });
+            const response = await apiClient.post('/user/join', JSON.stringify({name: idInput, password: pwInput, email: emailInput}));
             console.log("회원가입 응답: ", response);
             if (response.ok) {
                 createPopup("회원가입이 완료되었습니다!");
+                navigate('/login');
             }
             else {
-                createPopup("회원가입에 실패했습니다. 이미 사용중인 아이디 입니다. ");
+                console.log("회원가입 실패: ", response);
+                createPopup(`회원가입 실패: ${response.message}`);
             }
         }
         catch (e) {
             console.log("회원가입 실패: ", e);
+            createPopup("회원가입 실패: 알 수 없는 에러가 발생했습니다. ");
         }
     };
 

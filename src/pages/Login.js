@@ -22,16 +22,20 @@ const Login = () => {
         try {
             const myId = idInput;
             const response = await apiClient.post('/user/login', JSON.stringify({name: myId, password: pwInput}));
-            if (response) {
+            if (response.ok) {
                 createPopup(`안녕하세요 ${myId}님!`);
                 localStorage.setItem('token', response.token);
                 localStorage.setItem('userName', myId);
                 navigate('/user_info');
             }
+            else {
+                console.log("로그인 실패: ", response);
+                createPopup(`로그인 실패: ${response.message}`);
+            }
         }
         catch (e) {
             console.log("로그인 실패: ", e);
-            createPopup("로그인 실패: 서버가 응답하지 않습니다. ")
+            createPopup("로그인 실패: 알 수 없는 에러가 발생했습니다. ")
         }
     };
 
@@ -67,12 +71,3 @@ const Login = () => {
 }
 
 export default Login;
-
-/*
-const response = await fetch('http://localhost:3001/api/profile', {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${localStorage.getItem('token')}`
-  }
-});
-*/

@@ -1,11 +1,16 @@
 //UserInfo.js
 import { useState, useEffect } from "react";
 import apiClient from "../common/apiClient";
+import { createPopup } from "../components/Popup";
 
 const checkToken = async () => {
     const result = await apiClient.get('/user/TokenCheck', 'Authorization');
-    if (result) {
+    if (result.ok) {
         return true;
+    }
+    else if (result.code === 0){
+        createPopup(result.message);
+        return false;
     }
     else{
         return false;
@@ -15,11 +20,11 @@ const checkToken = async () => {
 const getUserInfo = async (userName) => {
     console.log("get userinfo with:", userName);
     const res = await apiClient.get(`/user?name=${userName}`);
-    if (!res) {
-        return undefined
+    if (res.ok) {
+        return res.data;
     }
     console.log(res);
-    return res;
+    return false;
 };
 
 const UserInfo = ({ userName }) => {

@@ -51,8 +51,12 @@ function Discover(){
     const searchItem = async () => {
         try{
             const searchResult = await apiClient.get(`/item/search?name=${searchString}`);
+            if (!searchResult.ok){
+                createPopup(`검색 실패: ${searchResult.message}`);
+                return;
+            }
             //console.log('searchResult: ', searchResult);
-            const searchedItems = searchResult.map((item) => {
+            const searchedItems = searchResult.data.map((item) => {
                 return <Item itemId={item.id} imageUrl={item.image} description={item.name} _onClick={addItem}/>;
             });
             //console.log(searchedItems);

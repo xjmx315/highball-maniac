@@ -2,27 +2,37 @@
 
 /*
 api 호출 담당. 
-실패하면 팝업을 띄우고 undifine을 리턴한다. 
-*/
+응답 예시:
+{
+  "ok" : false, 
+  "code" : 401, 
+  "message" : "아이디 또는 비밀번호가 올바르지 않습니다. ",
+  "data" : {}
+}
 
-import { createPopup } from '../components/Popup';
+fetch 실패시:
+{
+  "ok" : false, 
+  "code" : 0, 
+  "message" : "서버가 응답하지 않거나 알 수 없는 에러가 발생했습니다. ",
+  "data" : {}
+}
+*/
 
 const API_URL = "http://localhost:4000/api";
 
 const handleResponse = async (response) => {
-    if (!response.ok) {
-        const error = await response.json().catch(() => ({}));
-        console.log(error);
-        createPopup(error.message);
-        return undefined;
-    }
     return response.json();
 };
 
 const handleError = (error) => {
     console.error(error);
-    createPopup('서버가 응답하지 않습니다.');
-    return undefined;
+    return {
+        "ok" : false, 
+        "code" : 0, 
+        "message" : "서버가 응답하지 않거나 알 수 없는 에러가 발생했습니다. ",
+        "data" : {}
+    };
 };
 
 const get = async (path, ...options) => {
