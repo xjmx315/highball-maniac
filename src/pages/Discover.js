@@ -64,7 +64,7 @@ function Discover(){
         }
         catch(err){
             console.error("검색 실패: ", err);
-            createPopup('검색할 수 없습니다. 검색 서버가 응답하지 않습니다. ')
+            createPopup('알 수 없는 에러가 발생했습니다. ')
         }
     };
 
