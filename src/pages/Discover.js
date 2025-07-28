@@ -49,16 +49,30 @@ function Discover(){
     const [searchItems, setSearchItems] = useState([]);
 
     const searchItem = async () => {
+        //item과 ingredient를 검색해서 SearchItems에 넣습니다. 
         try{
-            const searchResult = await apiClient.get(`/item/search?name=${searchString}`);
+            let searchResult = await apiClient.get(`/item/search?name=${searchString}`);
             if (!searchResult.ok){
                 createPopup(`검색 실패: ${searchResult.message}`);
                 return;
             }
             //console.log('searchResult: ', searchResult);
-            const searchedItems = searchResult.data.map((item) => {
+            const items = searchResult.data.map((item) => {
                 return <Item itemId={item.id} imageUrl={item.image} description={item.name} _onClick={addItem}/>;
             });
+
+            searchResult = await apiClient.get(`/ingredient/search?name=${searchString}`);
+            if (!searchResult.ok){
+                createPopup(`검색 실패: ${searchResult.message}`);
+                return;
+            }
+            //console.log('searchResult: ', searchResult);
+            const ingredients = searchResult.data.map((item) => {
+                return <Item itemId={item.id+100} imageUrl={item.image} description={item.name} _onClick={addItem}/>;
+            });
+
+            const searchedItems = items.concat(ingredients);
+
             //console.log(searchedItems);
             setSearchItems(searchedItems);
         }
