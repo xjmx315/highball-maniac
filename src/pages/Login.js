@@ -44,6 +44,7 @@ const Login = () => {
         <div className='input-box' id='login-box'>
             <h1 onClick={handleSubmit} className={variablClass}>Login</h1>
             <div className='input-group'>
+                <div className='size-fixer'></div>
                 <input
                     value={ idInput }
                     onChange={ (e) => setIdInput(e.target.value) }

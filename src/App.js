@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <div className='page-content'>
         <Routes>
           <Route path='/' element={<Discover />} />
           <Route path='/recipe' element={<Recipes />} />
@@ -28,6 +29,7 @@ function App() {
           <Route path='join' element={<Join/>}/>
           <Route path='user_info' element={<UserInfo userName={localStorage.getItem('userName')}/>}/>
         </Routes>
+        </div>
       </Router>
       <PopupProvider/>
     </div>

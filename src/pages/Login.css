@@ -1,14 +1,15 @@
 /*Login.css*/
 
 .input-box{
-    background-color: #ae5135bf;
-    margin: 3rem 5rem;
-    padding: 1rem 1rem;
-     /* 모서리를 살짝 둥글게 */
-     border-radius: 10px;
-     /* 그림자로 입체감 추가 */
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-     max-width: 70rem;
+  background-color: #ae5135bf;
+  margin: 3rem 5rem;
+  padding: 1rem 1rem;
+  /* 모서리를 살짝 둥글게 */
+  border-radius: 10px;
+  /* 그림자로 입체감 추가 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 70rem;
+  /*width: 100%;*/
 }
 
 .input-box-title{
@@ -17,16 +18,15 @@
 
 /* 전체 컨테이너 스타일 */
 .locontainer {
-    /* 요청한 배경색 #801840 사용 */
-    background-color: #801840;
-    /* 화면 전체를 채우도록 설정 */
-    min-height: 100vh;
-    /* 중앙 정렬을 위한 flex 설정 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+  /* 요청한 배경색 #801840 사용 */
+  background-color: #801840;
+  /* 화면 전체를 채우도록 설정 */
+  min-height: 100vh;
+  /* 중앙 정렬을 위한 flex 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .clickable{
   transition: transform 0.2s ease;
@@ -40,98 +40,98 @@
 .clickable:active{
   transform: translateY(10px);
 }
-  
-  /* 로그인 폼 박스 스타일 */
-  .login-box {
-    /* 흰색 배경으로 깔끔한 느낌 */
-    background-color: white;
-    /* 패딩으로 내부 여백 추가 */
-    padding: 40px;
-    /* 모서리를 살짝 둥글게 */
-    border-radius: 10px;
-    /* 그림자로 입체감 추가 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* 최대 너비 설정 */
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  /* 제목 스타일 */
-  .title {
-    /* 제목 색상은 배경색과 조화롭게 */
-    color: #801840;
-    text-align: center;
-    margin-bottom: 20px;
-    /* 폰트 크기와 무게 조정 */
-    font-size: 24px;
-    font-weight: 600;
-  }
-  
-  /* 입력 필드 컨테이너 스타일 */
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  /* 라벨 스타일 */
-  .label {
-    display: block;
-    margin-bottom: 8px;
-    /* 라벨 색상 */
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  /* 입력 필드 스타일 */
-  .input {
-    /* 입력 필드 전체 너비 채우기 */
-    width: 30%;
-    padding: 12px;
-    /* 테두리 스타일 */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* 폰트 크기 */
-    font-size: 16px;
-    /* 박스 사이징 설정 */
-    box-sizing: border-box;
-  }
-  
-  /* 입력 필드 포커스 스타일 */
-  .input:focus {
-    outline: none;
-    /* 강조색 #fb8261 적용 */
-    border-color: #fb8261;
-    box-shadow: 0 0 5px rgba(251, 130, 97, 0.3);
-  }
-  
-  /* 로그인 버튼 스타일 */
-  .button {
-    /* 강조색 #fb8261 사용 */
-    background-color: #fb8261;
-    /* 텍스트 흰색 */
-    color: white;
-    /* 패딩으로 버튼 크기 조정 */
-    padding: 12px;
-    /* 테두리 제거 */
-    border: none;
-    border-radius: 5px;
-    /* 전체 너비 채우기 */
-    width: 100%;
-    /* 폰트 크기와 무게 */
-    font-size: 16px;
-    font-weight: 600;
-    /* 커서 포인터로 */
-    cursor: pointer;
-    /* 박스 사이징 설정 */
-    box-sizing: border-box;
-  }
-  
-  /* 버튼 호버 효과 */
-  .button:hover {
-    /* 약간 어두운 색으로 변화 */
-    background-color: #e66f50;
-    transition: background-color 0.3s ease;
-  }
+
+/* 로그인 폼 박스 스타일 */
+.login-box {
+  /* 흰색 배경으로 깔끔한 느낌 */
+  background-color: white;
+  /* 패딩으로 내부 여백 추가 */
+  padding: 40px;
+  /* 모서리를 살짝 둥글게 */
+  border-radius: 10px;
+  /* 그림자로 입체감 추가 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* 최대 너비 설정 */
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 제목 스타일 */
+.title {
+  /* 제목 색상은 배경색과 조화롭게 */
+  color: #801840;
+  text-align: center;
+  margin-bottom: 20px;
+  /* 폰트 크기와 무게 조정 */
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* 입력 필드 컨테이너 스타일 */
+.input-group {
+  margin-bottom: 20px;
+}
+
+/* 라벨 스타일 */
+.label {
+  display: block;
+  margin-bottom: 8px;
+  /* 라벨 색상 */
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 입력 필드 스타일 */
+.input {
+  /* 입력 필드 전체 너비 채우기 */
+  width: 30%;
+  padding: 12px;
+  /* 테두리 스타일 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* 폰트 크기 */
+  font-size: 16px;
+  /* 박스 사이징 설정 */
+  box-sizing: border-box;
+}
+
+/* 입력 필드 포커스 스타일 */
+.input:focus {
+  outline: none;
+  /* 강조색 #fb8261 적용 */
+  border-color: #fb8261;
+  box-shadow: 0 0 5px rgba(251, 130, 97, 0.3);
+}
+
+/* 로그인 버튼 스타일 */
+.button {
+  /* 강조색 #fb8261 사용 */
+  background-color: #fb8261;
+  /* 텍스트 흰색 */
+  color: white;
+  /* 패딩으로 버튼 크기 조정 */
+  padding: 12px;
+  /* 테두리 제거 */
+  border: none;
+  border-radius: 5px;
+  /* 전체 너비 채우기 */
+  width: 100%;
+  /* 폰트 크기와 무게 */
+  font-size: 16px;
+  font-weight: 600;
+  /* 커서 포인터로 */
+  cursor: pointer;
+  /* 박스 사이징 설정 */
+  box-sizing: border-box;
+}
+
+/* 버튼 호버 효과 */
+.button:hover {
+  /* 약간 어두운 색으로 변화 */
+  background-color: #e66f50;
+  transition: background-color 0.3s ease;
+}
 
 #palce-holder{
     width: 2rem;
