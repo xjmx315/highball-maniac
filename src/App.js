@@ -16,16 +16,6 @@ import UserInfo from './pages/UserInfo';
 import './App.css';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [input, setInput] = useState('');
-
-  const addTodo = () => {
-    if (input.trim()) {
-      setTodos([...todos, input]);
-      setInput('');
-    }
-  };
-
   return (
     <div className="App">
       <Router>
