@@ -16,7 +16,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!(idInput && pwInput)){
-            createPopup('아이디&비밀번호를 입력해 주세요. ')
+            createPopup('아이디&비밀번호를 입력해 주세요. ');
             return;
         }
         console.log('ID:', idInput, 'Password:', pwInput);
@@ -36,7 +36,7 @@ const Login = () => {
         }
         catch (e) {
             console.log("로그인 실패: ", e);
-            createPopup("로그인 실패: 알 수 없는 에러가 발생했습니다. ")
+            createPopup("로그인 실패: 알 수 없는 에러가 발생했습니다. ");
         }
     };
 
@@ -70,6 +70,6 @@ const Login = () => {
         </div>
     </div>
     );
-}
+};
 
 export default Login;

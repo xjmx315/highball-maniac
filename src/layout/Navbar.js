@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useUser } from '../common/UserContext';
 
 import './Navbar.css'
 
 function Navbar() {
+  const { isLoggedIn, logout } = useUser();
+
   return (
     <nav>
       <h1 id='logo'>Highball Maniac</h1>
@@ -15,8 +18,14 @@ function Navbar() {
         <li><NavLink to="/about" activeClassName="active">About</NavLink></li>
       </ul>
       <div class="nav-login">
-        <NavLink to="/login" className="login-btn">로그인</NavLink>
-        <NavLink to="/user_info" className="login-btn">내 페이지</NavLink>
+        {isLoggedIn ? (
+          <>
+            <NavLink to="/user_info" className="login-btn">내 페이지</NavLink>
+            <button onClick={logout} className="login-btn">로그아웃</button>
+          </>
+        ) : (
+          <NavLink to="/login" className="login-btn">로그인</NavLink>
+        )}
       </div>
     </nav>
   );

@@ -1,6 +1,6 @@
 // Join.js
 import {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { createPopup } from '../components/Popup';
 import './Login.css'; //Login에서 스타일 공유
 import './Join.css';
@@ -12,6 +12,8 @@ const Join = () => {
     const [emailInput, setEmailInput] = useState('');
 
     const [isChecked, setIsChecked] = useState(false);
+
+    const navigate = useNavigate();
 
     // 체크박스 상태 변경 핸들러
     const handleCheckboxChange = () => {
