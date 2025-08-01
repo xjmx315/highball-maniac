@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { createPopup } from '../components/Popup';
 import apiClient from '../common/apiClient';
+import {useUser} from '../common/UserContext';
 
 const Login = () => {
     const [idInput, setIdInput] = useState('');
@@ -24,8 +25,7 @@ const Login = () => {
             const response = await apiClient.post('/user/login', JSON.stringify({name: myId, password: pwInput}));
             if (response.ok) {
                 createPopup(`안녕하세요 ${myId}님!`);
-                localStorage.setItem('token', response.token);
-                localStorage.setItem('userName', myId);
+                useUser.Login(myId, response.data.token);
                 navigate('/user_info');
             }
             else {

@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Join from './pages/Join';
 import {PopupProvider} from './components/Popup';
 import UserInfo from './pages/UserInfo';
+import {UserProvider} from './common/UserContext';
 
 //css
 import './App.css';
@@ -18,6 +19,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <UserProvider>
       <Router>
         <Navbar />
         <div className='page-content'>
@@ -31,6 +33,7 @@ function App() {
         </Routes>
         </div>
       </Router>
+      </UserProvider>
       <PopupProvider/>
     </div>
   );
