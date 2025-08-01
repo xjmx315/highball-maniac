@@ -14,14 +14,14 @@ const UserProvider = ({ children }) => {
     const storedUser = localStorage.getItem('user');
     if (storedToken && storedUser) {
       setToken(storedToken);
-      setUser(JSON.parse(storedUser));
+      setUser(storedUser);
     }
   }, []);
 
   const login = (userData, userToken) => {
     setUser(userData);
     setToken(userToken);
-    localStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem('user', userData);
     localStorage.setItem('token', userToken);
   };
 

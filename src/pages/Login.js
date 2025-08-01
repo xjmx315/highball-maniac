@@ -27,7 +27,7 @@ const Login = () => {
             if (response.ok) {
                 createPopup(`안녕하세요 ${myId}님!`);
                 login(myId, response.data.token);
-                navigate('/user_info');
+                navigate(`/user_info`);
             }
             else {
                 console.log("로그인 실패: ", response);

@@ -29,7 +29,8 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='login' element={<Login/>}/>
           <Route path='join' element={<Join/>}/>
-          <Route path='user_info' element={<UserInfo userName={localStorage.getItem('userName')}/>}/>
+          <Route path='user_info/:userName' element={<UserInfo/>}/>
+          <Route path='user_info' element={<UserInfo isSelfPage={true}/>} />
         </Routes>
         </div>
       </Router>
