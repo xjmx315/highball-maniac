@@ -11,6 +11,7 @@ const Login = () => {
     const [pwInput, setPWInput] = useState('');
     const navigate = useNavigate();
     const variablClass = `input-box-title ${idInput && pwInput ? 'clickable' : '' }`;
+    const {login} = useUser();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +26,7 @@ const Login = () => {
             const response = await apiClient.post('/user/login', JSON.stringify({name: myId, password: pwInput}));
             if (response.ok) {
                 createPopup(`안녕하세요 ${myId}님!`);
-                useUser.Login(myId, response.data.token);
+                login(myId, response.data.token);
                 navigate('/user_info');
             }
             else {
