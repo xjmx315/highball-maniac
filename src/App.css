@@ -25,11 +25,10 @@ button {
   cursor: pointer;
 }
 
-#todolist ul {
-  list-style: none;
-  padding: 0;
-}
-
-#todolist li {
-  margin: 10px 0;
+.convex-box {
+  background-color: #ae5135bf;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2% 5%;
+  margin: 2% 5%;
 }

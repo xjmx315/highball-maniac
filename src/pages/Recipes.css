@@ -2,4 +2,15 @@
 
 #recipes {
     width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+#new-recipe-button {
+    margin: 0 auto;
+    max-width: 17rem;
+}
+
+#new-recipe-button h1 {
+    margin: 0;
 }
