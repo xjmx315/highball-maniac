@@ -1,0 +1,22 @@
+/*RecipeContainer.css*/
+
+.recipe-container {
+    padding: 2% 5%;
+    margin: 2% 5%;
+    background-color: #ae5135bf;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: end;
+}
+
+.recipe-container h1{
+    margin: 0;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.recipe-container p{
+    margin: 0.2rem 0.5rem;
+    text-align: left;
+}

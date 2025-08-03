@@ -4,10 +4,10 @@ import React, {useEffect, useState} from 'react';
 import apiClient from '../common/apiClient';
 import Card from './Card';
 import { useNavigate } from 'react-router-dom';
+import './RecipeContainer.css';
 
 const makeCard = (recipeData, navigate) => {
     //필수 항목 검사
-
     const { name, image, id } = recipeData;
     if (!name || !image || !id) {
         return (<h1>ERR!</h1>);
