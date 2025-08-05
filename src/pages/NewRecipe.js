@@ -17,7 +17,6 @@ const NewRecipe = () => {
             <button>등록</button>
         </div>
     );
-
 };
 
 export default NewRecipe;
