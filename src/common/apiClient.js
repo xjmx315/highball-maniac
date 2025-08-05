@@ -22,6 +22,7 @@ fetch 실패시:
 const API_URL = "http://localhost:4000/api";
 
 const handleResponse = async (response) => {
+    console.log(`receve: ${response}`);
     return response.json();
 };
 
@@ -44,7 +45,7 @@ const get = async (path, ...options) => {
         if (option === "Authorization") {
             headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
         }
-    })
+    });
 
     return fetch(`${API_URL}${path}`, {
         method: 'GET',
@@ -53,12 +54,20 @@ const get = async (path, ...options) => {
     .catch(handleError);
 };
 
-const post = async (path, body) => {
+const post = async (path, body, ...options) => {
+    const headers = {
+        'Content-Type': 'application/json',
+    }
+
+    options.forEach((option) => {
+        if (option === "Authorization") {
+            headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+        }
+    });
+
     return fetch(`${API_URL}${path}`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers,
         body
     }).then(handleResponse)
     .catch(handleError);
@@ -66,5 +75,5 @@ const post = async (path, body) => {
 
 export default {
     get,
-    post,
+    post
 };

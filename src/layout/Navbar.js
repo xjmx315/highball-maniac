@@ -1,13 +1,14 @@
 //Navbar.js
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useUser } from '../common/UserContext';
 
 import './Navbar.css'
 
 function Navbar() {
   const { isLoggedIn, logout } = useUser();
+  const navigate = useNavigate();
 
   return (
     <nav>
@@ -21,7 +22,7 @@ function Navbar() {
         {isLoggedIn ? (
           <>
             <NavLink to="/user_info" className="login-btn">내 페이지</NavLink>
-            <button onClick={logout} className="login-btn">로그아웃</button>
+            <button onClick={() => {logout(); navigate('/login');}} className="login-btn">로그아웃</button>
           </>
         ) : (
           <NavLink to="/login" className="login-btn">로그인</NavLink>

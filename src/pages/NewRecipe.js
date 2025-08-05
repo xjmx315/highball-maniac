@@ -1,14 +1,25 @@
 //NewRecipe.js
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import useItems from "../components/useItems";
 import Items from "../components/Items";
 import apiClient from "../common/apiClient";
 import { createPopup } from "../components/Popup";
+import { useUser } from "../common/UserContext";
 
 import './NewRecipe.css';
 
 const NewRecipe = () => {
+    const navigate = useNavigate();
+    const {isLoggedIn} = useUser();
+
+    useEffect(() => {
+        if (!isLoggedIn) {
+            navigate('/login');
+        }
+    }, []);
+
     //Items
     const {items, setItems} = useItems();
 
@@ -49,6 +60,14 @@ const NewRecipe = () => {
             createPopup('도수가 비어있습니다');
             return false;
         }
+        if (isNaN(Number(alcoholRef.current.value))){
+            createPopup('도수는 숫자로만 적어야 합니다');
+            return false;
+        }
+        if (Number(alcoholRef.current.value) > 100 || Number(alcoholRef.current.value) < 0) {
+            createPopup('도수는 0~100 사이의 숫자여야 합니다. ');
+            return false;
+        } 
         if (items.length === 0) {
             createPopup('하이볼에 들어가는 적절한 재료를 추가해주세요!');
             return false;
@@ -60,10 +79,10 @@ const NewRecipe = () => {
 
         items.forEach((value) => {
             if (value.itemId > 100) {
-                ingredientData.push({...value, id: value.itemId-100});
+                ingredientData.push(value.itemId-100);
             }
             else {
-                itemData.push({...value, id: value.itemId});
+                itemData.push(value.itemId);
             }
         });
 
@@ -72,22 +91,37 @@ const NewRecipe = () => {
             name: nameRef.current.value,
             description: descriptionRef.current.value,
             recipe: recipeRef.current.value,
-            alcohol: alcoholRef.current.value,
+            image: "",
+            alcohol: Number(alcoholRef.current.value),
+            tags: [],
             ingredients: ingredientData,
             items: itemData
         }
     };
 
-    const postRecipe = () => {
+    const postRecipe = async () => {
         //작성된 정보 가져오기
         const recipeData = getRecipeData();
         if (!recipeData) {
             return;
         }
-        //console.log(recipeData);
-        //주의: ingredient에 id에 접근해야 -100 된 id 있음
+        console.log(recipeData);
         
-        //로그인 정보 가져오기
+        //post 요청 보내기
+        try {
+            const response = await apiClient.post('/recipe', JSON.stringify(recipeData), 'Authorization');
+            console.log('newRecipe api response: ', response);
+            if (response.ok) {
+                createPopup('래시피 생성에 성공했습니다!');
+            }
+            else {
+                createPopup(`레시피 생성 실패: ${response.message}`);
+            }
+        }
+        catch (e) {
+            console.log(e);
+            createPopup('예기치 않은 에러가 발생했습니다. ');
+        }
     };
 
     return (
