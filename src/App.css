@@ -32,3 +32,24 @@ button {
   padding: 2% 5%;
   margin: 2% 5%;
 }
+
+.enter-button {
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 살짝 입체감 */
+  color: #222;
+  margin: 0.5rem 0;
+}
+
+.enter-button:hover {
+  background-color: #b35600; /* 호버 시 조금 더 진한 블루 */
+  transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.enter-button:active {
+  transform: translateY(10px);
+}

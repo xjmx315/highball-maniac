@@ -1,0 +1,35 @@
+/*NewRecipe.css*/
+
+textarea {
+    width: 100%; /* 너비를 컨테이너에 맞게 */
+    font-size: 1rem; /* 글씨 크기 */
+    border: 2px solid #ccc; /* 부드러운 테두리 색상 */
+    border-radius: 10px; /* 테두리 둥글게 */
+    padding: 10px; /* 내부 여백 */
+    resize: none;
+    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 0;
+}
+
+textarea:focus {
+    outline: none; /* 포커스시 기본 아웃라인 제거 */
+    border-color: #007bff; /* 포커스시 테두리 색상 변경 */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 부드러운 그림자 효과 */
+}
+
+#name-textarea {
+    height: 2.75rem;
+}
+
+#description-textarea {
+    height: 7.25rem;
+}
+
+#recipe-textarea {
+    height: 9.5rem;
+}
+
+#alcohol-textarea {
+    height: 2.75rem;
+}
