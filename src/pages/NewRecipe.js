@@ -18,7 +18,7 @@ const NewRecipe = () => {
         if (!isLoggedIn) {
             navigate('/login');
         }
-    }, []);
+    }, [isLoggedIn, navigate]);
 
     //Items
     const {items, setItems} = useItems();
