@@ -1,7 +1,7 @@
 //Tags.js
 
 //Tag를 유저가 검색하여 추가/삭제할 수 있는 인터페이스. 
-//selectItems에 {tagId, name} 객체 배열이 저장됩니다
+//selectItems에 {tagId, tagName} 객체 배열이 저장됩니다
 
 import SearchModalTag from "./SearchModalTag";
 import Tag from "./Tag";

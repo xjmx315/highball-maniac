@@ -2,7 +2,7 @@
 
 //tag를 검색할 수 있는 modal 입니다
 //검색된 요소를 클릭했을 때 처리할 함수를 설정할 수 있습니다
-//withTag에 {itemId, imageUrl, description} 이 전달됩니다
+//withTag에 {tagId, tagName} 이 전달됩니다
 
 import Modal from "./Modal";
 import { useState } from "react";

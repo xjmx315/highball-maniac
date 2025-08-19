@@ -90,6 +90,9 @@ const NewRecipe = () => {
             }
         });
 
+        //tags 전처리
+        const tagIds = tags.map(tag => tag.tagId);
+
         //데이터 추가
         return {
             name: nameRef.current.value,
@@ -97,7 +100,7 @@ const NewRecipe = () => {
             recipe: recipeRef.current.value,
             image: "",
             alcohol: Number(alcoholRef.current.value),
-            tags: [],
+            tags: tagIds,
             ingredients: ingredientData,
             items: itemData
         }
