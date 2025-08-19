@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import useItems from "../components/useItems";
 import Items from "../components/Items";
+import useTags from "../components/useTags";
+import Tags from "../components/Tags";
 import apiClient from "../common/apiClient";
 import { createPopup } from "../components/Popup";
 import { useUser } from "../common/UserContext";
@@ -22,6 +24,8 @@ const NewRecipe = () => {
 
     //Items
     const {items, setItems} = useItems();
+    //Tags
+    const {tags, setTags} = useTags();
 
     //data input
     const name_placeholder = "칵테일 이름을 입력하세요 ex) 모히또";
@@ -128,6 +132,7 @@ const NewRecipe = () => {
         <div>
             <h1>새로운 레시피</h1>
             <Items selectedItems={items} setSelectedItems={setItems}/>
+            <Tags selectedTags={tags} setSelectedTags={setTags}/>
             <div>
                 <textarea id="name-textarea" ref={nameRef} placeholder={name_placeholder}/>
                 <textarea id="description-textarea" ref={descriptionRef} placeholder={description_placeholder}/>
