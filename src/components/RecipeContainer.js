@@ -27,6 +27,9 @@ const RecipeContainer = ({ headLine, dis, apiURL }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (!apiURL) {
+            return undefined;
+        }
         const data = apiClient.get(apiURL);
         data.then((res) => {
             if (!res.ok) {
