@@ -45,9 +45,11 @@ const RecipeContainer = ({ headLine, dis, apiURL }) => {
 
     return (
         <div className="recipe-container">
-            <h1>{headLine}</h1>
-            <p>{dis}</p>
-            <div className="recipe-card-container">
+            <div className="recipe-content">
+                <h1>{headLine}</h1>
+                <p>{dis}</p>
+            </div>
+            <div className="recipe-content">
                 {recipes}
             </div>
         </div>
