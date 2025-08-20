@@ -5,20 +5,6 @@ import { createPopup } from "../components/Popup";
 import { useParams, useNavigate } from "react-router-dom";
 import {useUser} from "../common/UserContext";
 
-const checkToken = async () => {
-    const result = await apiClient.get('/user/TokenCheck', 'Authorization');
-    if (result.ok) {
-        return true;
-    }
-    else if (result.code === 0){
-        createPopup(result.message);
-        return false;
-    }
-    else{
-        return false;
-    }
-};
-
 const getUserInfo = async (userName) => {
     console.log("get userinfo with:", userName);
     const res = await apiClient.get(`/user?name=${userName}`);
