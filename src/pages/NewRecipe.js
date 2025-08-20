@@ -14,7 +14,8 @@ import './NewRecipe.css';
 
 const NewRecipe = () => {
     const navigate = useNavigate();
-    const {isLoggedIn} = useUser();
+    const {isLoggedIn, checkToken} = useUser();
+    checkToken();
 
     useEffect(() => {
         if (!isLoggedIn) {

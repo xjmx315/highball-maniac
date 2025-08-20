@@ -35,7 +35,8 @@ const UserInfo = ({isSelfPage}) => {
     const [userCreatedAt, setUserCreatedAt] = useState("");
 
     const navigate = useNavigate();
-    const {isLoggedIn, user} = useUser();
+    const {isLoggedIn, user, checkToken} = useUser();
+    checkToken();
 
     useEffect(() => {
         console.log('this is userinfo effect', isSelfPage, isLoggedIn, user);

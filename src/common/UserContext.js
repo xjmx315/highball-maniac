@@ -1,6 +1,7 @@
 //UserContext.js
 
 import { createContext, useState, useContext, useEffect } from 'react';
+import apiClient from './apiClient';
 
 const UserContext = createContext(null);
 
@@ -32,7 +33,19 @@ const UserProvider = ({ children }) => {
     localStorage.removeItem('token');
   };
 
-  const value = { user, token, login, logout, isLoggedIn: !!user };
+  const checkToken = async () => {
+    if (!user) return false;
+
+    const userData = await apiClient.get('/user/tokenCheck', 'Authorization');
+    if (!userData.ok) {
+      logout();
+      return false;
+    }
+
+    return true;
+  }
+
+  const value = { user, token, login, logout, checkToken, isLoggedIn: !!user };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
