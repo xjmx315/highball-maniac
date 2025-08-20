@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Join from './pages/Join';
 import NewRecipe from './pages/NewRecipe';
 import Recipe from './pages/Recipe';
+import RecipesWithTag from './pages/RecipesWithTag';
 import {PopupProvider} from './components/Popup';
 import UserInfo from './pages/UserInfo';
 import {UserProvider} from './common/UserContext';
@@ -35,6 +36,7 @@ function App() {
           <Route path='user_info' element={<UserInfo isSelfPage={true}/>} />
           <Route path='new_recipe' element={<NewRecipe/>} />
           <Route path='/recipe/:recipeId' element={<Recipe />}/>
+          <Route path='/tag/:tagId' element={<RecipesWithTag/>}/>
         </Routes>
         </div>
       </Router>

@@ -7,18 +7,20 @@ import { useNavigate } from 'react-router-dom';
 import './RecipeContainer.css';
 
 const makeCard = (recipeData, navigate) => {
+    const defaultImage = "https://wimg.heraldcorp.com/content/default/2015/03/12/20150312001242_0.jpg";
     //필수 항목 검사
+    console.log(recipeData);
     const { name, image, id } = recipeData;
-    if (!name || !image || !id) {
+    if (!name || !id) {
         return (<h1>ERR!</h1>);
     }
 
     const redirectFun = () => {
-        navigate(`/recipe/?name=${name}`);
+        navigate(`/recipe/${id}`);
     }
 
     return (
-        <Card imageUrl={image} description={name} _onClick={redirectFun}/>
+        <Card imageUrl={image || defaultImage} description={name} _onClick={redirectFun}/>
     );
 };
 
@@ -36,12 +38,10 @@ const RecipeContainer = ({ headLine, dis, apiURL }) => {
                 console.log('recipeContainer API 호출 실패:', res.message);
             }
             else {
-                setRecipes(res.data.recipes.map((value) => {
-                    makeCard(value, navigate);
-                }));
+                setRecipes(res.data.map(value => makeCard(value, navigate)));
             }
         });
-    }, [recipes]);
+    }, []);
 
     return (
         <div className="recipe-container">
