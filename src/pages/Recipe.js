@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../common/apiClient";
 import { useParams, useNavigate } from "react-router-dom";
 import Tag from "../components/Tag";
+import './Recipe.css'
 
 const Recipe = () => {
     const {recipeId} = useParams();
@@ -44,7 +45,7 @@ const Recipe = () => {
                     <p className="recipe-discription">{recipeData.description}</p>
                 </div>
             </div>
-            <p className="recipe-content">{recipeData.recipe}</p>
+            <p className="recipe-recipe">{recipeData.recipe}</p>
             <div className="recipe-tags">
                 {
                     recipeData.tags.map(

@@ -1,0 +1,23 @@
+/*Recipe.css*/
+.recipe-full-page {
+    width: 80%;
+    margin: 1rem 2rem;
+}
+
+.recipe-tags {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.recipe-head-container {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-image {
+    width: 20%;
+    height: 20%;
+    margin: 1rem 1rem;
+    border-radius: 10px;
+}
