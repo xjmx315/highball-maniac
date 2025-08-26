@@ -41,7 +41,7 @@ const RecipeContainer = ({ headLine, dis, apiURL }) => {
                 setRecipes(res.data.map(value => makeCard(value, navigate)));
             }
         });
-    }, [apiURL]);
+    }, [apiURL, navigate]);
 
     return (
         <div className="recipe-container">
