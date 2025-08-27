@@ -19,6 +19,7 @@ fetch 실패시:
 }
 */
 
+//const API_URL = "http://localhost:4000/api";
 const API_URL = "https://highballmaniac.onrender.com/api";
 
 const handleResponse = async (response) => {
