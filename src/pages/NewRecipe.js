@@ -40,11 +40,13 @@ const NewRecipe = () => {
                                 "\n4. 화이트 럼 45ml를 붓고 소다수를 붓는다. "+
                                 "\n5. 민트 잎과 라임 조각으로 장식한다.";
     const alcohol_placeholder = "칵테일의 도수를 알려주세요 ex) 19";
+    const image_placeholder = "이미지 URL을 입력하세요(업로드 기능은 곧 제공될 예정입니다)";
 
     const nameRef = useRef(null);
     const descriptionRef = useRef(null);
     const recipeRef = useRef(null);
     const alcoholRef = useRef(null);
+    const imageRef = useRef(null);
 
     //post recipe
     const getRecipeData = () => {
@@ -99,7 +101,7 @@ const NewRecipe = () => {
             name: nameRef.current.value,
             description: descriptionRef.current.value,
             recipe: recipeRef.current.value,
-            image: "",
+            image: imageRef.current.value || "",
             alcohol: Number(alcoholRef.current.value),
             tags: tagIds,
             ingredients: ingredientData,
@@ -142,6 +144,7 @@ const NewRecipe = () => {
                 <textarea id="description-textarea" ref={descriptionRef} placeholder={description_placeholder}/>
                 <textarea id="recipe-textarea" ref={recipeRef} placeholder={recipe_placeholder}/>
                 <textarea id="alcohol-textarea" ref={alcoholRef} placeholder={alcohol_placeholder}/>
+                <textarea id="image-textarea" ref={imageRef} placeholder={image_placeholder}/>
             </div>
             <button className="enter-button" onClick={postRecipe}>등록</button>
         </div>
