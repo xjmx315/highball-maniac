@@ -1,15 +1,20 @@
 /*Login.css*/
 
+.login-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
 .input-box{
   background-color: #ae5135bf;
-  margin: 3rem 5rem;
+  margin: 3rem auto;
   padding: 1rem 1rem;
   /* 모서리를 살짝 둥글게 */
   border-radius: 10px;
   /* 그림자로 입체감 추가 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 70rem;
-  /*width: 100%;*/
+  width: 80%;
 }
 
 .input-box-title{
@@ -84,8 +89,9 @@
 
 /* 입력 필드 스타일 */
 .input {
+  display: block;
   /* 입력 필드 전체 너비 채우기 */
-  width: 30%;
+  width: 50%;
   padding: 12px;
   /* 테두리 스타일 */
   border: 1px solid #ccc;
@@ -94,6 +100,7 @@
   font-size: 16px;
   /* 박스 사이징 설정 */
   box-sizing: border-box;
+  margin: 0.5rem auto;
 }
 
 /* 입력 필드 포커스 스타일 */
@@ -133,6 +140,6 @@
   transition: background-color 0.3s ease;
 }
 
-#palce-holder{
+#place-holder{
     width: 2rem;
 }
