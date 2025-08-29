@@ -1,6 +1,6 @@
 // Join.js
 import {useState} from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createPopup } from '../components/Popup';
 import './Login.css'; //Login에서 스타일 공유
 import './Join.css';
@@ -55,7 +55,6 @@ const Join = () => {
     return (
     <div className="login-container">
         <div className='input-box' id='login-box'>
-            <h1 onClick={handleSubmit} className={variablClass}>Join</h1>
             <div className='input-group'>
                 <div className="privacy-consent-container">
                     {/* 스크롤 가능한 약관 텍스트 박스 */}
@@ -130,12 +129,7 @@ const Join = () => {
                     className='input'
                 />
             </div>
-        </div>
-
-        <div id='place-holder'/>
-
-        <div className='input-box' id='login-box'>
-            <NavLink to='/login'><h1 className='clickable input-box-title'>Login</h1></NavLink>
+            <h1 onClick={handleSubmit} className={variablClass}>가입하기</h1>
         </div>
     </div>
     );

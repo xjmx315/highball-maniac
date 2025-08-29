@@ -74,7 +74,7 @@
 
 /* 입력 필드 컨테이너 스타일 */
 .input-group {
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 /* 라벨 스타일 */
@@ -138,8 +138,4 @@
   /* 약간 어두운 색으로 변화 */
   background-color: #e66f50;
   transition: background-color 0.3s ease;
-}
-
-#place-holder{
-    width: 2rem;
 }

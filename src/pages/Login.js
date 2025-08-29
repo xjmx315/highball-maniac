@@ -1,6 +1,6 @@
 // Login.js
 import {useState} from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { createPopup } from '../components/Popup';
 import apiClient from '../common/apiClient';
@@ -43,7 +43,6 @@ const Login = () => {
     return (
     <div className="login-container">
         <div className='input-box' id='login-box'>
-            <h1 onClick={handleSubmit} className={variablClass}>Login</h1>
             <div className='input-group'>
                 <div className='size-fixer'></div>
                 <input
@@ -61,12 +60,7 @@ const Login = () => {
                     className='input'
                 />
             </div>
-        </div>
-
-        <div id='place-holder'/>
-
-        <div className='input-box' id='login-box'>
-            <NavLink to='/join'><h1 className='clickable input-box-title'>Join</h1></NavLink>
+            <h1 onClick={handleSubmit} className={variablClass}>Login</h1>
         </div>
     </div>
     );

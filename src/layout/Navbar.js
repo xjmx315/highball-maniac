@@ -25,7 +25,10 @@ function Navbar() {
             <button onClick={() => {logout(); navigate('/login');}} className="login-btn">로그아웃</button>
           </>
         ) : (
+          <>
           <NavLink to="/login" className="login-btn">로그인</NavLink>
+          <NavLink to="/join" className="login-btn">회원가입</NavLink>
+          </>
         )}
       </div>
     </nav>
