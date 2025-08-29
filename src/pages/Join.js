@@ -22,6 +22,11 @@ const Join = () => {
 
     const variablClass = `input-box-title ${idInput && pwInput && isChecked ? 'clickable' : '' }`;
 
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(!isChecked){
@@ -29,10 +34,13 @@ const Join = () => {
             return;
         }
         if (!(idInput && pwInput)){
-            createPopup('아이디&비밀번호는 필수 항목입니다')
+            createPopup('아이디&비밀번호는 필수 항목입니다');
             return;
         }
-        console.log('ID:', idInput, 'Password:', pwInput, 'Eamil:', emailInput);
+        if(!isValidEmail(emailInput)){
+            createPopup('유효한 이메일 형식으로 입력하세요');
+            return;
+        }
         
         try {
             const response = await apiClient.post('/user/join', JSON.stringify({name: idInput, password: pwInput, email: emailInput}));
