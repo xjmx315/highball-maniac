@@ -1,0 +1,14 @@
+/*TagSearch.css*/
+
+.tag-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 0.8rem;
+    max-width: 90%;
+}
+
+#all-tag-container {
+    display: inline;
+}

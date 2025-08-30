@@ -16,7 +16,7 @@ function Home () {
                 <p>재료를 추가하고 검색을 누르면 해당 재료로 만들 수 있는 레시피 목록이 검색됩니다. </p>
             </div>
             <div className="round-box">
-                <h1 className="clickable">태그로 검색하는 칵테일 레시피</h1>
+                <h1 className="clickable" onClick={() => {navigate('/tag_search')}}>태그로 검색하는 칵테일 레시피</h1>
                 <p>다양한 기준으로 분류된 칵테일들을 취향에 맞게 찾아보세요. </p>
                 <p>레시피의 태그를 클릭해도 해당 태그를 가진 레시피를 확인할 수 있습니다. </p>
             </div>
