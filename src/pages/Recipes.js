@@ -9,8 +9,8 @@ function Recipes(){
     return (
         <div id="recipes">
             <RecipeContainer headLine={'인기 레시피'} dis={'Highball Maniac의 최고 인기 레시피를 만나보세요'}/>
-            <RecipeContainer headLine={'새로운 레시피'} dis={'가장 빠르게 새롭게 추가된 레시피를 만나보세요'}/>
-            <RecipeContainer headLine={'랜덤 레시피'} dis={'새로운 레시피를 발견하세요'}/>
+            <RecipeContainer headLine={'새로운 레시피'} dis={'가장 빠르게 새롭게 추가된 레시피를 만나보세요'} apiURL={"/recipe/newest"}/>
+            <RecipeContainer headLine={'랜덤 레시피'} dis={'새로운 레시피를 발견하세요'} apiURL={"/recipe/random"}/>
         </div>
     );
 }
