@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 //componunt
+import Home from './pages/Home';
 import Navbar from './layout/Navbar';
 import Discover from './pages/Discover';
 import About from './pages/About';
@@ -27,7 +28,8 @@ function App() {
         <Navbar />
         <div className='page-content'>
         <Routes>
-          <Route path='/' element={<Discover />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/discover' element={<Discover />} />
           <Route path='/recipe' element={<Recipes />} />
           <Route path='/about' element={<About />} />
           <Route path='login' element={<Login/>}/>

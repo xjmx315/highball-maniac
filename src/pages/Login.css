@@ -33,19 +33,6 @@
   align-items: center;
 }
 
-.clickable{
-  transition: transform 0.2s ease;
-  color: aqua;
-}
-
-.clickable:hover{
-  transform: translateY(-5px);
-}
-
-.clickable:active{
-  transform: translateY(10px);
-}
-
 /* 로그인 폼 박스 스타일 */
 .login-box {
   /* 흰색 배경으로 깔끔한 느낌 */

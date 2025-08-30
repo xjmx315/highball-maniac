@@ -28,7 +28,7 @@ function Discover(){
     return (
         <div>
             <Items selectedItems={items} setSelectedItems={setItems}/>
-            <button className="enter-button" id="discoverButton" onClick={searchRecipes}>발견!</button>
+            <button className="enter-button" id="discoverButton" onClick={searchRecipes}>검색</button>
             {searchUrl && <RecipeContainer headLine={"검색 결과"} dis={""} apiURL={searchUrl}/>}
         </div>
     );

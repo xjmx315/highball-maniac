@@ -44,7 +44,7 @@ const RecipeContainer = ({ headLine, dis, apiURL }) => {
     }, [apiURL, navigate]);
 
     return (
-        <div className="recipe-container">
+        <div className="round-box">
             <div className="recipe-content">
                 <h1>{headLine}</h1>
                 <p>{dis}</p>
