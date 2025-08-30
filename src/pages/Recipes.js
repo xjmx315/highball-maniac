@@ -3,7 +3,6 @@
 import React from "react";
 import './Recipes.css';
 import RecipeContainer from "../components/RecipeContainer";
-import { NavLink } from "react-router-dom";
 
 function Recipes(){
 
@@ -12,9 +11,6 @@ function Recipes(){
             <RecipeContainer headLine={'인기 레시피'} dis={'Highball Maniac의 최고 인기 레시피를 만나보세요'}/>
             <RecipeContainer headLine={'새로운 레시피'} dis={'가장 빠르게 새롭게 추가된 레시피를 만나보세요'}/>
             <RecipeContainer headLine={'랜덤 레시피'} dis={'새로운 레시피를 발견하세요'}/>
-            <div className="convex-box" id="new-recipe-button">
-                <NavLink to='/new_recipe'><h1 className='clickable input-box-title'>NewRecipe</h1></NavLink>
-            </div>
         </div>
     );
 }

@@ -27,7 +27,7 @@ function Home () {
             </div>
             <h1>로그인해서 아래 기능을 이용해보세요</h1>
             <div className="round-box">
-                <h1>칵테일 레시피 업로드</h1>
+                <h1 className="clickable" onClick={() => {navigate('/new_recipe')}}>칵테일 레시피 업로드</h1>
                 <p>나만의 레시피를 업로드하여 공개하세요. </p>
                 <p>업로드된 레시피는 누구나 검색할 수 있습니다. </p>
             </div>
