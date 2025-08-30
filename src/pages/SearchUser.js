@@ -20,6 +20,10 @@ function SearchUser () {
             console.log(result);
             return ;
         }
+        if (result.data.length === 0) {
+            createPopup('검색 결과가 없습니다');
+            return ;
+        }
         setUsers(result.data);
     };
 
