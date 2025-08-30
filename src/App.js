@@ -14,6 +14,7 @@ import NewRecipe from './pages/NewRecipe';
 import Recipe from './pages/Recipe';
 import RecipesWithTag from './pages/RecipesWithTag';
 import TagSearch from './pages/TagSearch';
+import SearchUser from './pages/SearchUser';
 import {PopupProvider} from './components/Popup';
 import UserInfo from './pages/UserInfo';
 import {UserProvider} from './common/UserContext';
@@ -41,6 +42,7 @@ function App() {
           <Route path='/recipe/:recipeId' element={<Recipe />}/>
           <Route path='/tag/:tagId' element={<RecipesWithTag/>}/>
           <Route path='/tag_search' element={<TagSearch/>}/>
+          <Route path='/user_search' element={<SearchUser/>}/>
         </Routes>
         </div>
       </Router>

@@ -21,7 +21,7 @@ function Home () {
                 <p>레시피의 태그를 클릭해도 해당 태그를 가진 레시피를 확인할 수 있습니다. </p>
             </div>
             <div className="round-box">
-                <h1 className="clickable">사용자로 검색하는 칵테일 레시피</h1>
+                <h1 className="clickable" onClick={() => {navigate('/user_search')}}>사용자로 검색하는 칵테일 레시피</h1>
                 <p>유명 유튜버, 바텐더의 레시피를 한눈에 확인하세요. </p>
                 <p>해당 유저의 프로필에 접속해서 확인할 수 있습니다. </p>
             </div>
